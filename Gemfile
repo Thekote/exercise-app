@@ -27,8 +27,6 @@ gem "stimulus-rails"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 
-gem 'devise'
-
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
@@ -53,7 +51,16 @@ gem "bootsnap", require: false
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  gem 'rspec-rails', '~> 5.1'
+  gem 'rubocop', '~> 1.25', require: false
+  gem 'rubocop-performance', '~> 1.13', require: false
+  gem 'rubocop-rails', '~> 2.13', require: false
+  gem 'rubocop-rspec', '~> 2.9', require: false
+  gem 'shoulda-matchers', '~> 5.0'
+  gem 'simplecov', '~> 0.21', require: false
 end
+
+gem 'devise'
 
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
