@@ -12,6 +12,8 @@ describe Exercise do
   end
 
   describe 'associations' do
-    it { is_expected.to have_and_belong_to_many(:routines) }
+    it { is_expected.to have_many(:exercise_routines) }
+
+    it { is_expected.to have_many(:routines).through(:exercise_routines) }
   end
 end
