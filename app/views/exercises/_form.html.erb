@@ -1,0 +1,17 @@
+<%= form_with(model: exercise) do |form| %>
+  <div>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+  </div>
+  <div>
+    <%= form.label :description %><br>
+    <%= form.text_area :description, size: '20x5' %>
+  </div>
+  <div>
+    <%= form.label :power_level %><br>
+    <%= form.number_field(:power_level, in: 0..10) %>
+  </div>
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

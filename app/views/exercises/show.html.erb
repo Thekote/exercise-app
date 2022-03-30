@@ -1,0 +1,25 @@
+<div id="exercise">
+  <table>
+    <thead>
+      <tr>
+        <th><strong>Name</strong></th>
+        <th><strong>Description</strong></th>
+        <th><strong>Power Level</strong></th>  
+      </tr>
+    </thead>
+    <tbody>      
+      <tr>
+        <td><%= @exercise.name %></td>
+        <td><%= @exercise.description %></td>
+        <td><%= @exercise.power_level %></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div>
+  <%= link_to "Edit this exercise", edit_exercise_path(@exercise) %> |
+  <%= link_to "Back to exercises", exercises_path %>
+
+  <%= button_to "Destroy this exercise", @exercise, method: :delete %>
+</div>
