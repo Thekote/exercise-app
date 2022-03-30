@@ -1,0 +1,21 @@
+<h1>Exercises</h1>
+
+<div id="exercises">
+  <table>
+    <thead>
+      <tr>
+        <th><strong>Name</strong></th>  
+      </tr>
+    </thead>
+    <tbody>      
+      <% @exercises.each do |exercise| %>
+        <tr>
+          <td><%= exercise.name %></td>
+          <td><%= link_to "show exercise", exercise %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= link_to "New exercise", new_exercise_path %>  
+</div>
+
