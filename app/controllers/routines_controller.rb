@@ -1,6 +1,7 @@
 class RoutinesController < ApplicationController
   before_action :set_routine, only: %i[ show edit update destroy ]
   skip_before_action :authenticate_user!, only: %i[ index ]
+
   def index
     @routines = Routine.all
   end
@@ -11,7 +12,6 @@ class RoutinesController < ApplicationController
   def new
     @routine = Routine.new
   end
-
   
   def create
     @routine = Routine.new(routine_params)
@@ -35,11 +35,11 @@ class RoutinesController < ApplicationController
   end
 
   private
-    def set_routine
-      @routine = Routine.find(params[:id])
-    end
-
-    def routine_params
-      params.require(:routine).permit(:name, exercise_ids: [])
-    end
+  def set_routine
+    @routine = Routine.find(params[:id])
+  end
+  
+  def routine_params
+    params.require(:routine).permit(:name, exercise_ids: [])
+  end
 end
