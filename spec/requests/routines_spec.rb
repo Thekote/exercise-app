@@ -37,10 +37,12 @@ RSpec.describe '/routines', type: :request do
         expect(response).to redirect_to(new_user_session_path)
       end
 
-      it 'returns a ok http status' do
+      it 'returns a found http status' do
         routine = Routine.create! valid_attributes
+        sign_out(@user)
+
         get routine_path(routine)
-        expect(response).to have_http_status(:ok)
+        expect(response).to have_http_status(:found)
       end
     end
   end
@@ -61,13 +63,13 @@ RSpec.describe '/routines', type: :request do
         routine = Routine.create! valid_attributes
         sign_out(@user)
         
-        get routine_path(routine)
+        get new_routine_path
         expect(response).to redirect_to(new_user_session_path)
       end
 
       it 'returns a ok http status' do
         routine = Routine.create! valid_attributes
-        get routine_path(routine)
+        get new_routine_path
         expect(response).to have_http_status(:ok)
       end
     end
