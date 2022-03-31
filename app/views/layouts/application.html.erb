@@ -11,6 +11,15 @@
   </head>
 
   <body>
+    <p class="notice" style="color: green"><%= notice %></p>
+    <p class="alert" style="color: red"><%= alert %></p>
+    <% if user_signed_in? %>
+      <%= link_to "Create Excercise", new_exercise_path %>
+      <%= link_to "Create Routine", new_routine_path %>
+      <%= button_to "Sign out", destroy_user_session_path, method: :delete %>
+    <% else %>
+      <%= button_to "Sign in", new_user_session_path, method: :get %>
+    <% end %>
     <%= yield %>
   </body>
 </html>
