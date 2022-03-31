@@ -17,6 +17,8 @@ RSpec.describe "/exercises", type: :request do
     }    
   }
 
+  before { user.confirm }
+
   describe "GET /index" do
     it "renders a successful response" do
       Exercise.create! valid_attributes

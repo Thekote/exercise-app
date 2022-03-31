@@ -10,7 +10,7 @@ RSpec.describe "/routines", type: :request do
   
   let(:user) { User.create(email: 'user@example.com', password: 'qwerty') }
   let!(:auth) { sign_in(user) }
-
+  before { user.confirm }
   
   describe "GET /index" do
     it "returns a successful response" do
